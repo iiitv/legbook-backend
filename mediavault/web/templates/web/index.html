@@ -15,21 +15,25 @@
 	<!-- //Meta-Tags -->
 
 	<!-- Custom-Styleheet-Links -->
-		<link rel="stylesheet" href="css/style.css" 		 type="text/css" media="all">
-		<link rel="stylesheet" href="css/animate-custom.css" type="text/css" media="all">
-	<!-- //Custom-Styleheet-Links -->
-
-	<!-- Fonts -->
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" type="text/css" media="all">
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700" 		  type="text/css" media="all">
+		
 	<!-- //Fonts -->
 	<style>
 	#myimage {
     filter: brightness(50%);
 	}
 	</style>
+	<!-- //Custom-Styleheet-Links -->
 
+	<link rel="stylesheet" href="/static/css/style.css" type="text/css" media="all">
+	<link rel="stylesheet" href="/static/css/animate-custom.css" type="text/css" media="all">
+	
+	<!-- Fonts -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" type="text/css" media="all">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700" 		  type="text/css" media="all">
 
+	<style type="text/css">
+	div.inline { float:left; }
+	</style>
 </head>
 <!-- //Head -->
 
@@ -37,24 +41,18 @@
 
 <!-- Body -->
 <body>
-
-	<h1 class="w3layouts agileits">MEDIA VAULT LOGIN FORM</h1>
-
+	<center>
+	<img src="/static/images/logo1.png" style="display:inline-block;vertical-align: middle;">
+	<h1 style="display: inline-block; color:white;vertical-align: middle;">MEDIA VAULT LOGIN FORM</h1>
+	</center>
 	<div class="container w3layouts agileits">
-
 		<div class="content-left w3layouts agileits">
 			<div id="myimage">
-			<img src="images/2.png" style="height:561px;">
+			<img src="/static/images/2.png" style="height:614px;">
 			</div>
 			<p>Don't have much storage in your device! No need to worry just store it at one place and stream whenever needed.. </p>
-			<a class="more w3layouts agileits" href="#">LEARN MORE</a>
-			<div class="list w3layouts agileits">
-				<ul class="w b3layouts agileits">
-					<li class="w3layouts agileits"><a href="#">About</a></li>
-					<li class="li2 w3layouts agileits"><a href="#">Terms Of Use</a></li>
-					<li class="w3layouts agileits"><a href="#">Contact</a></li>
-				</ul>
-			</div>
+			<a class="more w3layouts agileits" href="#" style="top:85%;">LEARN MORE</a>
+			
 		</div>
 
 		<div class="content-right w3layouts agileits" >
@@ -66,6 +64,7 @@
 						<div id="login" class="animate w3layouts agileits form">
 							<h2 class="w3layouts agileits">Sign In</h2>
 							<form  action="#" autocomplete="on" method="post">
+								
 								<label>E-mail</label>
 								<input type="text" Name="Userame" required="">
 								<label>Password</label>
@@ -74,53 +73,56 @@
 									<p><a href="#">Forgot Password?</a></p>
 									<div class="content-ri">
 									<form>
-										<a class="more w3layouts agileits" href="#">Sign in</a>
+										<a class=" w3layouts agileits" href="#">Sign in</a>
 									</form>
 									</div>
 									<div class="clear"></div>
 								</div>
-								<p class="change_link w3layouts agileits">
-									Normal user Sign in? <a href="#toregister" class="to_register">Sign in!</a>
-								</p>
+								
 								<div class="clear"></div>
 							</form>
-							<div class="social-icons w3layouts agileits">
-								<p>OR USE YOUR SOCIAL ACCOUNTS</p>
+							
+						</div>
+						<div id="register" class="animate w3layouts agileits form" style="height:520px;">
+							<h2>Sign in</h2>
+							<form  action="#" autocomplete="on" method="post">
+								<form action="#" method="post">
+									<label>Name</label>
+									<input type="text" class="name w3layouts agileits" Name="Name" required="">
+									<label>E-mail</label>
+									<input type="text" Name="Email" required="">
+									<label>Password</label>
+									<input type="password" Name="Password" required="">
+									<br>
+									<center>
+									<div class="send-button w3layouts agileits">
+									
+										<div  class="content-ri">
+										<form action="#" method="post">
+										
+											<a class="more w3layouts agileits" style="top:92%; left:50%;" href="#">Sign in</a>
+								
+										</form>
+										
+										</div>
+									</div>
+								</center>
+								</form>
+								
+							</form>
+							<div class="clear"></div>
+							<div class="social-icons w3layouts agileits" style="top:92%;">
+								<p>USE YOUR SOCIAL ACCOUNTS TO SIGN IN</p>
 								<ul>
 									<li class="fb w3ls w3layouts agileits"><a href="#"><span class="icons w3layouts agileits"></span><span class="text w3layouts agileits">Facebook</span></a></li>
 									<li class="twt w3ls w3layouts agileits"><a href="#"><span class="icons w3layouts agileits"></span><span class="text w3layouts agileits">Twitter</span></a></li>
 									<div class="clear"></div>
 								</ul>
 							</div>
-							<div class="clear"></div>
-						</div>
-						<div id="register" class="animate w3layouts agileits form" style="height:467px;">
-							<h2>Sign in</h2>
-							<form  action="#" autocomplete="on" method="post">
-								<form action="#" method="post">
-									<label>First-Name</label>
-									<input type="text" class="name w3layouts agileits" Name="Name" required="">
-									<label>Last-Name</label>
-									<input type="text" class="phone w3layouts agileits" Name="Phone Number" required="">
-									<label>E-mail</label>
-									<input type="text" Name="Email" required="">
-									<label>Password</label>
-									<input type="password" Name="Password" required="">
-									<div class="send-button w3layouts agileits">
-										<div  class="content-ri">
-										<form action="#" method="post">
-											<a class="more w3layouts agileits" style="top:92%;" href="#">Sign in</a>
-										</form>
-										</div>
-									</div>
-								</form>
-								<p class="change_link w3layouts agileits">
-									Sign in as a master user? <a href="#tologin" class="to_register">Sign In</a>
-								</p>
-								<div class="clear"></div>
-							</form>
+							
 						</div>
 						<div class="clear"></div>
+
 					</div>
 				</div>
 			</section>
@@ -128,8 +130,16 @@
 		<div class="clear"></div>
 
 	</div>
+
 	<div class="footer w3layouts agileits">
-		<p> &copy; 2016 Media Vault In Form. All Rights Reserved</p>
+	<div style="float:left; display:inline;">
+	<ul class="w b3layouts agileits" >
+		<li class="w3layouts agileits" style="float:left; display:inline;"><a href="#">About</a></li>
+		<li class="li2 w3layouts agileits" style="float:left; display:inline;"><a href="#">Terms Of Use</a></li>
+					
+	</ul>
+	</div>
+	<p> &copy; 2016 Media Vault In Form. All Rights Reserved</p>
 	</div>
 
 	
