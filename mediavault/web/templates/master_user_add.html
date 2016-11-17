@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MediaVault | Master | User Management | Add User</title>
+</head>
+<body>
+{% if number_of_errors > 0 %}
+{% for error in errors %}
+{{error}}
+{% endfor %}
+{% endif %}
+{% if number_of_messages > 0 %}
+{% for error in messages %}
+{{error}}
+{% endfor %}
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" minlength="8" name="password" placeholder="Password"
+           required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <label>Create as Superuser
+        <input type="checkbox" name="is_superuser" value="Y">
+    </label>
+    <input type="submit" name="create">
+</form>
+</body>
+</html>

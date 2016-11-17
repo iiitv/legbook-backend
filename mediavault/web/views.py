@@ -2,7 +2,6 @@
 Views for 'web' app
 """
 import traceback
-from wsgiref.util import FileWrapper
 
 from django.contrib.auth.models import User
 from django.http import HttpResponse
@@ -251,3 +250,106 @@ def explore(request, id):
         return redirect('/media/{0}'.format(id))
     return render(request, 'explore.html',
                   {'items': item.children.all().order_by('name')})
+
+
+def master_user(request):
+    username = request.session.get('username', None)
+    if not username:
+        return redirect('/login?err=Login required')
+    user = User.objects.filter(username=username)
+    if len(user) == 0:
+        return redirect('/login?err=No such user')
+    user = user[0]
+    if not user.is_superuser:
+        return redirect('/')
+    return render(request, 'master_user.html')
+
+
+def master_user_add(request):
+    username = request.session.get('username', None)
+    if not username:
+        return redirect('/login?err=Login required')
+    user = User.objects.filter(username=username)
+    if len(user) == 0:
+        return redirect('/login?err=No such user')
+    user = user[0]
+    errors = []
+    messages = []
+    if not user.is_superuser:
+        return redirect('/')
+    if request.POST.get('create', None):
+        print('Request to create user')
+        if request.POST.get('username', None):
+            username = request.POST.get('username')
+            password = request.POST.get('password', None)
+            email = request.POST.get('email', None)
+            print('Received {0} {1} {2}'.format(username, password, email))
+            if password:
+                if len(password) >= 8:
+                    try:
+                        print('Trying to create user')
+                        new_user = User.objects.create_user(username=username,
+                                                            email=email,
+                                                            password=password)
+                        is_superuser = request.POST.get('is_superuser', None)
+                        if is_superuser:
+                            if is_superuser == 'Y':
+                                print('Making superuser')
+                                new_user.is_superuser = True
+                        new_user.save()
+                        print('Done.. Saved')
+                        messages.append('User created successfully')
+                    except Exception:
+                        print('Error occurred')
+                        errors.append('Unable to add user')
+                        traceback.print_exc()
+                else:
+                    errors.append(
+                        'Password should be more than 8 characters long')
+            else:
+                errors.append('Please enter a password')
+    return render(request, 'master_user_add.html',
+                  {'number_of_errors': len(errors),
+                   'number_of_messages': len(messages), 'errors': errors,
+                   'messages': messages})
+
+
+def master_user_modify(request):
+    username = request.session.get('username', None)
+    if not username:
+        return redirect('/login?err=Login required')
+    user = User.objects.filter(username=username)
+    if len(user) == 0:
+        return redirect('/login?err=No such user')
+    user = user[0]
+    errors = []
+    messages = []
+    if not user.is_superuser:
+        return redirect('/')
+    if request.POST.get('make_master', None):
+        id_ = request.POST.get('id_make_master')
+        user_ = User.objects.get(id=id_)
+        user_.is_superuser = True
+        user_.save()
+        messages.append('Made {0} a master user'.format(user_.username))
+    if request.POST.get('remove_master', None):
+        id_ = request.POST.get('id_remove_master')
+        user_ = User.objects.get(id=id_)
+        user_.is_superuser = False
+        user_.save()
+        messages.append(
+            'Removed master user permissions from {0}'.format(user_.username))
+    if request.POST.get('remove_user'):
+        id_ = request.POST.get('id_remove')
+        user_ = User.objects.get(id=id_)
+        uname = user_.username
+        user_.delete()
+        messages.append('Deleted user {0}'.format(uname))
+    all_users = User.objects.all()
+    admins = User.objects.filter(is_superuser=True)
+    other = set(all_users).difference(set(admins))
+    return render(request, 'master_user_modify.html',
+                  {'number_of_errors': len(errors),
+                   'number_of_messages': len(messages), 'errors': errors,
+                   'messages': messages, 'all_users': all_users,
+                   'admins': admins, 'others': other})

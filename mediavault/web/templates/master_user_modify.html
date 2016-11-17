@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MediaVault | User Management | Modify User</title>
+</head>
+<body>
+{% if number_of_errors > 0 %}
+{% for error in errors %}
+{{error}}
+{% endfor %}
+{% endif %}
+{% if number_of_messages > 0 %}
+{% for error in messages %}
+{{error}}
+{% endfor %}
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    Remove User - <br/>
+    <select name="id_remove">
+        {% for user in all_users %}
+        <option value="{{user.id}}">{{user.username}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" name="remove_user">
+</form>
+<form method="post">
+    {% csrf_token %}
+    Make Master - <br/>
+    <select name="id_make_master">
+        {% for user in others %}
+        <option value="{{user.id}}">{{user.username}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" name="make_master">
+</form>
+<form method="post">
+    {% csrf_token %}
+    Remove Master - <br/>
+    <select name="id_remove_master">
+        {% for user in admins %}
+        <option value="{{user.id}}">{{user.username}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" name="remove_master">
+</form>
+</body>
+</html>

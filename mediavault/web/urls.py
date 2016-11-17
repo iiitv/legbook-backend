@@ -16,7 +16,11 @@ urlpatterns = [
     url(r'^media/(?P<id>[0-9]+)/?$', views.media_page, name='media-page'),
     url(r'^media-get/(?P<id>[0-9]+)/?$', views.media_get, name='media-get'),
     url(r'^explore/?$', views.explore_root, name='explore-root'),
-    url(r'^explore/(?P<id>[0-9]+)/?$', views.explore, name='explore')
+    url(r'^explore/(?P<id>[0-9]+)/?$', views.explore, name='explore'),
+    url(r'^master/user/?$', views.master_user, name='master-user'),
+    url(r'^master/user/add/?$', views.master_user_add, name='master-user-add'),
+    url(r'^master/user/modify/?$', views.master_user_modify,
+        name='master-user-modify')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
