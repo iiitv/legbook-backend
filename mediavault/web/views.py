@@ -112,7 +112,8 @@ def shared_items(request):
             'number_of_errors': len(errors),
             'number_of_mesages': len(messages),
             'errors': errors,
-            'messages': messages
+            'messages': messages,
+            'items':get_root_items(user)
         }
     )
 

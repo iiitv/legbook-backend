@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+
+<!-- Head -->
+<head>
+
+	<title>Media Vault | Login</title>
+
+	<!-- Meta-Tags -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="Travel Agency Sign In Form Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //Meta-Tags -->
+
+	<!-- Custom-Styleheet-Links -->
+		
+	<!-- //Fonts -->
+	<style>
+	#myimage {
+    filter: brightness(50%);
+	}
+	</style>
+	<!-- //Custom-Styleheet-Links -->
+
+	<link rel="stylesheet" href="/static/css/style.css" type="text/css" media="all">
+	<link rel="stylesheet" href="/static/css/animate-custom.css" type="text/css" media="all">
+	
+	<!-- Fonts -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" type="text/css" media="all">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700" 		  type="text/css" media="all">
+
+	<style type="text/css">
+	div.inline { float:left; }
+	input[type=submit] {
+   	 position: absolute;
+    top: 80%;
+    left: 50%;
+    height:45px;
+    width:135px;
+    -ms-transform: translate(-32.7%, -60%);
+    transform: translate(-50%, -60%);
+    padding: 13px 40px;
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    /*--w3layouts--*/
+    /*--agileits--*/
+    color: #2a2344;
+    background-color: #FFF;
+	}
+	</style>
+</head>
+<!-- //Head -->
+
+
+
+<!-- Body -->
+<body>
+	{% if error %}
+	<center>
+    	    <p style="color:white;font-size:20px;margin-top:30px;">{{ error }}</p>
+	</center>
+	{% endif %}
+	<center>
+	<img src="/static/images/logo1.png" style="display:inline-block;vertical-align: middle;">
+	<h1 style="display: inline-block; color:white;vertical-align: middle;">MediaVault - Login</h1>
+	</center>
+	<div class="container w3layouts agileits">
+		<div class="content-left w3layouts agileits">
+			<div id="myimage">
+			<img src="/static/images/2.jpeg" style="height:614px;">
+			</div>
+			<p>Don't have much storage in your device! No need to worry just store it at one place and stream whenever needed.. </p>
+			<a class="more w3layouts agileits" href="#" style="top:85%;">LEARN MORE</a>
+			
+		</div>
+
+		<div class="content-right w3layouts agileits" >
+			<section>
+				<div id="container_demo" >
+					<a class="hiddenanchor w3layouts agileits" id="tologin"></a>
+					<a class="hiddenanchor w3layouts agileits" id="toregister"></a>
+					<div id="wrapper" style="height:561px;">
+						
+
+						<div id="register" class="animate w3layouts agileits form" style="height:520px;">
+							<div style="margin-top:80px;">
+							<h2>Sign in</h2>
+							<form method="post" target="">
+    							{% csrf_token %}
+
+									<label for="username">Username: </label>
+									<input id="username" type="text" class="name w3layouts agileits" Name="username" required="">
+									<label for="password">Password: </label>
+									<input id="password" type="password" Name="password" required="">
+									<br>
+									<center>
+										<input type="submit" name="login" value="Sign in" >
+								</center>
+							</form>
+							</div>
+								
+							
+
+						</div>
+						<div class="clear"></div>
+
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="clear"></div>
+
+	</div>
+
+	<div class="footer w3layouts agileits">
+	<div style="float:left; display:inline;">
+	<ul class="w b3layouts agileits" >
+		<li class="w3layouts agileits" style="float:left; display:inline;"><a href="#">About</a></li>
+		<li class="li2 w3layouts agileits" style="float:left; display:inline;"><a href="#">Contact Us</a></li>
+					
+	</ul>
+	</div>
+	<p> &copy; 2016 Media Vault In Form. All Rights Reserved</p>
+	</div>
+
+	
+
+</body>
+<!-- //Body -->
+
+</html>
