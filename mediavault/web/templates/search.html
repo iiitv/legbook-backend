@@ -3,15 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>MediaVailt | Online Download Search</title>
+    <link rel="stylesheet" href="/static/css/home.css" type="text/css" media="all">
 </head>
 <body>
+<div class="header">
+    <center>
+    <img src="/static/images/logo1.png" style="display:inline-block;vertical-align: middle;">
+    <h1 style="display: inline-block; color:white;vertical-align: middle;">MediaVault - Change Password</h1>
+
+    </center>
+ </div>
+ <center>
+ <div style="background-color: white;height:200px;width:300px;border:solid;border-radius: 5px;margin:40px; padding: 10px;" >
+
 <form method="post">
     {% csrf_token %}
+    <div style="float:left; margin-top:20px;margin-left:20px;">
+    
     <input type="text" required="required" name="param"
            placeholder="Enter search query">
     <input type="submit" name="search" value="Search">
+    </div>
 </form>
-
+</div>
+</center>
 {% autoescape off %}
 {% for result in results %}
 <a href='/online/{{ result.id }}'>
